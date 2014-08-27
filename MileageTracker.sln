@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MileageTracker", "MileageTracker\MileageTracker.csproj", "{A010842E-4832-402D-A42D-CACDD3C09015}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MileageTracker.Test.Unit", "MileageTracker.Test\Unit\MileageTracker.Test.Unit.csproj", "{D092F8B9-5C12-4418-8AC9-88B920EAD7C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A010842E-4832-402D-A42D-CACDD3C09015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A010842E-4832-402D-A42D-CACDD3C09015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A010842E-4832-402D-A42D-CACDD3C09015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A010842E-4832-402D-A42D-CACDD3C09015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D092F8B9-5C12-4418-8AC9-88B920EAD7C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D092F8B9-5C12-4418-8AC9-88B920EAD7C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D092F8B9-5C12-4418-8AC9-88B920EAD7C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D092F8B9-5C12-4418-8AC9-88B920EAD7C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
