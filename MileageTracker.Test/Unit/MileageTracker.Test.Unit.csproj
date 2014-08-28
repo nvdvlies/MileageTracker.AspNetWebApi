@@ -81,9 +81,9 @@
     <Compile Include="Helpers\FakeApplicationDbContext.cs" />
     <Compile Include="Helpers\FakeDbSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AddressServiceTest.cs" />
+    <Compile Include="Services\AddressServiceTests.cs" />
     <Compile Include="Services\CarServiceTests.cs" />
-    <Compile Include="Services\GoogleDistanceCalculatorServiceTest.cs" />
+    <Compile Include="Services\GoogleDistanceCalculatorServiceTests.cs" />
     <Compile Include="Services\TripServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
