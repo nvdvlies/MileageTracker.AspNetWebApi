@@ -13,6 +13,7 @@ namespace MileageTracker {
     public class Startup {
         public void Configuration(IAppBuilder app) {
             var config = new HttpConfiguration();
+            config.EnableCors();
 
             ApplicationSettingsFactory.InitializeApplicationSettingsFactory(new WebConfigApplicationSettings());
             LoggingFactory.InitializeLogFactory(new Log4NetAdapter());
