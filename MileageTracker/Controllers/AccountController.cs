@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System.Net;
+using System.Net.Http;
+using Microsoft.AspNet.Identity;
 using MileageTracker.Interfaces;
 using MileageTracker.ViewModels;
 using System.Threading.Tasks;
@@ -19,21 +21,21 @@ namespace MileageTracker.Controllers {
         /// <param name="registerViewModel">Userdetails for registration</param>
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IHttpActionResult> Register([FromBody]RegisterViewModel registerViewModel) {
+        public async Task<HttpResponseMessage> Register([FromBody]RegisterViewModel registerViewModel) {
             if (!ModelState.IsValid) {
-                return BadRequest(ModelState);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
             var result = await _accountService.RegisterUser(registerViewModel);
 
             var errorResult = GetErrorResult(result);
 
-            return errorResult ?? Ok();
+            return errorResult ?? Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        private IHttpActionResult GetErrorResult(IdentityResult result) {
+        private HttpResponseMessage GetErrorResult(IdentityResult result) {
             if (result == null) {
-                return InternalServerError();
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
 
             if (!result.Succeeded) {
@@ -45,10 +47,10 @@ namespace MileageTracker.Controllers {
 
                 if (ModelState.IsValid) {
                     // No ModelState errors are available to send, so just return an empty BadRequest.
-                    return BadRequest();
+                    return Request.CreateResponse(HttpStatusCode.BadRequest);
                 }
 
-                return BadRequest(ModelState);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
             return null;
