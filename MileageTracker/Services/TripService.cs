@@ -28,6 +28,7 @@ namespace MileageTracker.Services {
                 TotalPages = (int) Math.Ceiling((double) _dbContext.Trips.Count(t => t.User.Id == _applicationUser.Id) / pageSize),
                 Items = _dbContext.Trips.Where(t => t.User.Id == _applicationUser.Id)
                                         .OrderByDescending(t => t.Date)
+                                        .ThenByDescending(t => t.Id)
                                         .Skip((pageNumber - 1) * pageSize)
                                         .Take(pageSize)
             };
