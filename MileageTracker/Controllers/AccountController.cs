@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Net.Http;
+using System.Text;
 using Microsoft.AspNet.Identity;
 using MileageTracker.Interfaces;
 using MileageTracker.ViewModels;
@@ -39,18 +40,18 @@ namespace MileageTracker.Controllers {
             }
 
             if (!result.Succeeded) {
+                var sb = new StringBuilder();
                 if (result.Errors != null) {
                     foreach (var error in result.Errors) {
-                        ModelState.AddModelError("", error);
+                        sb.AppendLine(error);
                     }
                 }
 
-                if (ModelState.IsValid) {
-                    // No ModelState errors are available to send, so just return an empty BadRequest.
+                if (string.IsNullOrEmpty(sb.ToString())) {
                     return Request.CreateResponse(HttpStatusCode.BadRequest);
                 }
 
-                return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { message = sb.ToString() });
             }
 
             return null;

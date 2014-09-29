@@ -47,7 +47,7 @@ namespace MileageTracker.Controllers {
             try {
                 var car = _carService.GetCarById(id);
                 if (car == null) {
-                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { message = "Not found." });
                 }
                 return Request.CreateResponse(HttpStatusCode.OK, car);
             } catch (Exception ex) {
@@ -70,7 +70,7 @@ namespace MileageTracker.Controllers {
                 car = _carService.AddCar(car);
                 return Request.CreateResponse(HttpStatusCode.Created, car);
             } catch (DbEntityValidationException ex) {
-                return Request.CreateResponse((HttpStatusCode)422, ex.GetErrorResult());
+                return Request.CreateResponse((HttpStatusCode)422, new { message = ex.GetErrorResult() });
             } catch (Exception ex) {
                 LoggingFactory.GetLogger().LogError(ex.Message, ex);
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
@@ -94,9 +94,9 @@ namespace MileageTracker.Controllers {
                 car = _carService.UpdateCar(car);
                 return Request.CreateResponse(HttpStatusCode.OK, car);
             } catch (ObjectNotFoundException) {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return Request.CreateResponse(HttpStatusCode.NotFound, new { message = "Not found." });
             } catch (DbEntityValidationException ex) {
-                return Request.CreateResponse((HttpStatusCode)422, ex.GetErrorResult());
+                return Request.CreateResponse((HttpStatusCode)422, new { message = ex.GetErrorResult() });
             } catch (Exception ex) {
                 LoggingFactory.GetLogger().LogError(ex.Message, ex);
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
@@ -114,9 +114,9 @@ namespace MileageTracker.Controllers {
                 _carService.DeleteCar(id);
                 return Request.CreateResponse(HttpStatusCode.OK);
             } catch (ObjectNotFoundException) {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return Request.CreateResponse(HttpStatusCode.NotFound, new { message = "Not found." });
             } catch (DbEntityValidationException ex) {
-                return Request.CreateResponse((HttpStatusCode)422, ex.GetErrorResult());
+                return Request.CreateResponse((HttpStatusCode)422, new { message = ex.GetErrorResult() });
             } catch (Exception ex) {
                 LoggingFactory.GetLogger().LogError(ex.Message, ex);
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);

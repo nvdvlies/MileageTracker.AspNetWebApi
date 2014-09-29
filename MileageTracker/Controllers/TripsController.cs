@@ -63,7 +63,7 @@ namespace MileageTracker.Controllers {
             try {
                 var trip = _tripService.GetTripById(id);
                 if (trip == null) {
-                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { message = "Not found."});
                 }
                 return Request.CreateResponse(HttpStatusCode.OK, trip);
             } catch (Exception ex) {
@@ -86,7 +86,7 @@ namespace MileageTracker.Controllers {
                 trip = _tripService.AddTrip(trip);
                 return Request.CreateResponse(HttpStatusCode.Created, trip);
             } catch (DbEntityValidationException ex) {
-                throw new HttpResponseException(Request.CreateResponse((HttpStatusCode)422, ex.GetErrorResult()));
+                throw new HttpResponseException(Request.CreateResponse((HttpStatusCode)422, new { message = ex.GetErrorResult() }));
             } catch (Exception ex) {
                 LoggingFactory.GetLogger().LogError(ex.Message, ex);
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
@@ -109,9 +109,9 @@ namespace MileageTracker.Controllers {
                 trip = _tripService.UpdateTrip(trip);
                 return Request.CreateResponse(HttpStatusCode.OK, trip);
             } catch (ObjectNotFoundException) {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return Request.CreateResponse(HttpStatusCode.NotFound, new { message = "Not found." });
             } catch (DbEntityValidationException ex) {
-                return Request.CreateResponse((HttpStatusCode)422, ex.GetErrorResult());
+                return Request.CreateResponse((HttpStatusCode)422, new { message = ex.GetErrorResult() });
             } catch (Exception ex) {
                 LoggingFactory.GetLogger().LogError(ex.Message, ex);
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
@@ -129,9 +129,9 @@ namespace MileageTracker.Controllers {
                 _tripService.DeleteTrip(id);
                 return Request.CreateResponse(HttpStatusCode.OK);
             } catch (ObjectNotFoundException) {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return Request.CreateResponse(HttpStatusCode.NotFound, new { message = "Not found." });
             } catch (DbEntityValidationException ex) {
-                return Request.CreateResponse((HttpStatusCode)422, ex.GetErrorResult());
+                return Request.CreateResponse((HttpStatusCode)422, new { message = ex.GetErrorResult() });
             } catch (Exception ex) {
                 LoggingFactory.GetLogger().LogError(ex.Message, ex);
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);

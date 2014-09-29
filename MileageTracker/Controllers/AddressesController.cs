@@ -47,7 +47,7 @@ namespace MileageTracker.Controllers {
             try {
                 var address = _addressService.GetAddressById(id);
                 if (address == null) {
-                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { message = "Not found." });
                 }
                 return Request.CreateResponse(HttpStatusCode.OK, address);
             } catch (Exception ex) {
@@ -71,7 +71,7 @@ namespace MileageTracker.Controllers {
                 address = _addressService.AddAddress(address);
                 return Request.CreateResponse(HttpStatusCode.Created, address);
             } catch (DbEntityValidationException ex) {
-                return Request.CreateResponse((HttpStatusCode)422, ex.GetErrorResult());
+                return Request.CreateResponse((HttpStatusCode)422, new { message = ex.GetErrorResult() });
             } catch (Exception ex) {
                 LoggingFactory.GetLogger().LogError(ex.Message, ex);
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
@@ -94,9 +94,9 @@ namespace MileageTracker.Controllers {
                 address = _addressService.UpdateAddress(address);
                 return Request.CreateResponse(HttpStatusCode.OK, address);
             } catch (ObjectNotFoundException) {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return Request.CreateResponse(HttpStatusCode.NotFound, new { message = "Not found." });
             } catch (DbEntityValidationException ex) {
-                return Request.CreateResponse((HttpStatusCode)422, ex.GetErrorResult());
+                return Request.CreateResponse((HttpStatusCode)422, new { message = ex.GetErrorResult() });
             } catch (Exception ex) {
                 LoggingFactory.GetLogger().LogError(ex.Message, ex);
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
@@ -114,9 +114,9 @@ namespace MileageTracker.Controllers {
                 _addressService.DeleteAddress(id);
                 return Request.CreateResponse(HttpStatusCode.OK);
             } catch (ObjectNotFoundException) {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return Request.CreateResponse(HttpStatusCode.NotFound, new { message = "Not found." });
             } catch (DbEntityValidationException ex) {
-                return Request.CreateResponse((HttpStatusCode)422, ex.GetErrorResult());
+                return Request.CreateResponse((HttpStatusCode)422, new { message = ex.GetErrorResult() });
             } catch (Exception ex) {
                 LoggingFactory.GetLogger().LogError(ex.Message, ex);
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
