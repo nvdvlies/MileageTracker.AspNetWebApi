@@ -38,7 +38,7 @@ MileageTracker.AspNetWebApi
 ### Register account
 Register a new account
 
-*POST api/account*
+`POST api/account`
 
 #### Headers
 | Header | Value |
@@ -60,7 +60,7 @@ Register a new account
 
 Retrieve an authorization token
 
-*POST api/account/token*
+`POST api/account/token`
 
 #### Headers
 | Header | Value |
@@ -88,7 +88,7 @@ grant_type=password&username={username}&password={password}
 
 Retrieve a paginated list of trips created by the user.
 
-*GET api/trips?pageNumber={pageNumber}&pageSize={pageSize}*
+`GET api/trips?pageNumber={pageNumber}&pageSize={pageSize}`
 
 #### URI parameters
 | Name | Description | Type | Additional information |
@@ -172,7 +172,7 @@ Retrieve a paginated list of trips created by the user.
 
 Retrieve a template of a trip containing the current date, last destination address as the origin address and last used car.
 
-*GET api/trips/template*
+`GET api/trips/template`
 
 #### Headers
 
@@ -210,7 +210,7 @@ Retrieve a template of a trip containing the current date, last destination addr
 
 Retrieve a trip with a given ID.
 
-*GET api/trips/{id}*
+`GET api/trips/{id}`
 
 #### URI parameters
 | Name | Description | Type | Additional information |
@@ -262,7 +262,7 @@ Retrieve a trip with a given ID.
 
 Create a new trip.
 
-*POST api/trips*
+`POST api/trips`
 
 #### Headers
 
@@ -328,7 +328,7 @@ Create a new trip.
 
 Update an existing trip.
 
-*PUT api/trips/{id}*
+`PUT api/trips/{id}`
 
 #### URI parameters
 | Name | Description | Type | Additional information |
@@ -400,7 +400,7 @@ Update an existing trip.
 
 Delete a trip.
 
-*DELETE api/trips/{id}*
+`DELETE api/trips/{id}`
 
 #### URI parameters
 | Name | Description | Type | Additional information |
@@ -418,7 +418,7 @@ Delete a trip.
 
 Retrieve a paginated list of addresses created by the user.
 
-*GET api/addresses?pageNumber={pageNumber}&pageSize={pageSize}*
+`GET api/addresses?pageNumber={pageNumber}&pageSize={pageSize}`
 
 #### URI parameters
 | Name | Description | Type | Additional information |
@@ -460,7 +460,7 @@ Retrieve a paginated list of addresses created by the user.
 
 Retrieve an address with a given ID.
 
-*GET api/addresses/{id}*
+`GET api/addresses/{id}`
 
 #### URI parameters
 | Name | Description | Type | Additional information |
@@ -491,7 +491,7 @@ Retrieve an address with a given ID.
 
 Create a new address.
 
-*POST api/addresses*
+`POST api/addresses`
 
 #### Headers
 
@@ -530,7 +530,7 @@ Create a new address.
 
 Update an existing address
 
-*PUT api/addresses/{id}*
+`PUT api/addresses/{id}`
 
 #### URI parameters
 | Name | Description | Type | Additional information |
@@ -575,7 +575,7 @@ Update an existing address
 
 Delete an address
 
-*DELETE api/addresses/{id}*
+`DELETE api/addresses/{id}`
 
 #### URI parameters
 | Name | Description | Type | Additional information |
@@ -592,7 +592,7 @@ Delete an address
 
 Retrieve a paginated list of cars created by the user.
 
-*GET api/cars?pageNumber={pageNumber}&pageSize={pageSize}*
+`GET api/cars?pageNumber={pageNumber}&pageSize={pageSize}`
 
 #### URI parameters
 | Name | Description | Type | Additional information |
@@ -632,7 +632,7 @@ Retrieve a paginated list of cars created by the user.
 
 Retrieve a car with a given ID.
 
-*GET api/cars/{id}*
+`GET api/cars/{id}`
 
 #### URI parameters
 | Name | Description | Type | Additional information |
@@ -662,7 +662,7 @@ Retrieve a car with a given ID.
 
 Create a new car.
 
-*POST api/cars*
+`POST api/cars`
 
 #### Headers
 
@@ -699,7 +699,7 @@ Create a new car.
 
 Update an existing car
 
-*PUT api/cars/{id}*
+`PUT api/cars/{id}`
 
 #### URI parameters
 | Name | Description | Type | Additional information |
@@ -742,7 +742,7 @@ Update an existing car
 
 Delete a car
 
-*DELETE api/cars/{id}*
+`DELETE api/cars/{id}`
 
 #### URI parameters
 | Name | Description | Type | Additional information |
