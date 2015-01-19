@@ -1,15 +1,13 @@
 MileageTracker.AspNetWebApi
 ===========================
 
-# MileageTracker API
-
-## Account
+### Account
 | Endpoint | Description   |
 | ------------- | ------------- |
 | [POST api/account](#register-account) | Register a new account |
 | [POST api/account/token](#get-authorization-token) | Retrieve an authorization token |
 
-## Trips
+### Trips
 | Endpoint | Description   |
 | ------------- | ------------- |
 | [GET api/trips?pageNumber={pageNumber}&pageSize={pageSize}](#get-trips) | Retrieve a paginated list of trips created by the user. |
@@ -19,7 +17,7 @@ MileageTracker.AspNetWebApi
 | [PUT api/trips/{id}](#update-trip) | Update an existing trip |
 | [DELETE api/trips/{id}](#delete-trip) | Delete a trip |
 
-## Addresses
+### Addresses
 | Endpoint | Description   |
 | ------------- | ------------- |
 | [GET api/addresses?pageNumber={pageNumber}&pageSize={pageSize}](#get-addresses)	| Retrieve a paginated list of addresses created by the user. |
@@ -28,7 +26,7 @@ MileageTracker.AspNetWebApi
 | [PUT api/addresses/{id}](#update-address) | Update an existing address |
 | [DELETE api/addresses/{id}](#delete-address) | Delete an address |
 
-## Cars
+### Cars
 | Endpoint | Description   |
 | ------------- | ------------- |
 | [GET api/cars?pageNumber={pageNumber}&pageSize={pageSize}](#get-cars) | Retrieve a paginated list of cars created by the user. |
