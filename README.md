@@ -106,66 +106,71 @@ Retrieve a paginated list of trips created by the user.
 #### Sample response
 
 ```json
-[
-  {
-    "id": 1,
-    "date": "2015-01-19T12:06:59.7202676Z",
-    "addressOrigin": {
+{
+  "currentPage": 1,
+  "pageSize": 15,
+  "totalPages": 1,
+  "items": [
+    {
       "id": 1,
-      "name": "sample string 2",
-      "addressLine": "sample string 3",
-      "postalCode": "sample string 4",
-      "city": "sample string 5",
-      "remarks": "sample string 6"
+      "date": "2015-01-19T12:06:59.7202676Z",
+      "addressOrigin": {
+        "id": 1,
+        "name": "sample string 2",
+        "addressLine": "sample string 3",
+        "postalCode": "sample string 4",
+        "city": "sample string 5",
+        "remarks": "sample string 6"
+      },
+      "addressDestination": {
+        "id": 1,
+        "name": "sample string 2",
+        "addressLine": "sample string 3",
+        "postalCode": "sample string 4",
+        "city": "sample string 5",
+        "remarks": "sample string 6"
+      },
+      "car": {
+        "id": 1,
+        "numberPlate": "sample string 2",
+        "make": "sample string 3",
+        "model": "sample string 4",
+        "remarks": "sample string 5"
+      },
+      "remarks": "sample string 3",
+      "distanceInKm": 4
     },
-    "addressDestination": {
+    {
       "id": 1,
-      "name": "sample string 2",
-      "addressLine": "sample string 3",
-      "postalCode": "sample string 4",
-      "city": "sample string 5",
-      "remarks": "sample string 6"
-    },
-    "car": {
-      "id": 1,
-      "numberPlate": "sample string 2",
-      "make": "sample string 3",
-      "model": "sample string 4",
-      "remarks": "sample string 5"
-    },
-    "remarks": "sample string 3",
-    "distanceInKm": 4
-  },
-  {
-    "id": 1,
-    "date": "2015-01-19T12:06:59.7202676Z",
-    "addressOrigin": {
-      "id": 1,
-      "name": "sample string 2",
-      "addressLine": "sample string 3",
-      "postalCode": "sample string 4",
-      "city": "sample string 5",
-      "remarks": "sample string 6"
-    },
-    "addressDestination": {
-      "id": 1,
-      "name": "sample string 2",
-      "addressLine": "sample string 3",
-      "postalCode": "sample string 4",
-      "city": "sample string 5",
-      "remarks": "sample string 6"
-    },
-    "car": {
-      "id": 1,
-      "numberPlate": "sample string 2",
-      "make": "sample string 3",
-      "model": "sample string 4",
-      "remarks": "sample string 5"
-    },
-    "remarks": "sample string 3",
-    "distanceInKm": 4
-  }
-]
+      "date": "2015-01-19T12:06:59.7202676Z",
+      "addressOrigin": {
+        "id": 1,
+        "name": "sample string 2",
+        "addressLine": "sample string 3",
+        "postalCode": "sample string 4",
+        "city": "sample string 5",
+        "remarks": "sample string 6"
+      },
+      "addressDestination": {
+        "id": 1,
+        "name": "sample string 2",
+        "addressLine": "sample string 3",
+        "postalCode": "sample string 4",
+        "city": "sample string 5",
+        "remarks": "sample string 6"
+      },
+      "car": {
+        "id": 1,
+        "numberPlate": "sample string 2",
+        "make": "sample string 3",
+        "model": "sample string 4",
+        "remarks": "sample string 5"
+      },
+      "remarks": "sample string 3",
+      "distanceInKm": 4
+    }
+  ]
+}
 ```
 
 ### Get trip template
@@ -436,24 +441,29 @@ Retrieve a paginated list of addresses created by the user.
 #### Sample response
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "sample string 2",
-    "addressLine": "sample string 3",
-    "postalCode": "sample string 4",
-    "city": "sample string 5",
-    "remarks": "sample string 6"
-  },
-  {
-    "id": 1,
-    "name": "sample string 2",
-    "addressLine": "sample string 3",
-    "postalCode": "sample string 4",
-    "city": "sample string 5",
-    "remarks": "sample string 6"
-  }
-]
+{
+  "currentPage": 1,
+  "pageSize": 15,
+  "totalPages": 1,
+  "items": [
+    {
+      "id": 1,
+      "name": "sample string 2",
+      "addressLine": "sample string 3",
+      "postalCode": "sample string 4",
+      "city": "sample string 5",
+      "remarks": "sample string 6"
+    },
+    {
+      "id": 1,
+      "name": "sample string 2",
+      "addressLine": "sample string 3",
+      "postalCode": "sample string 4",
+      "city": "sample string 5",
+      "remarks": "sample string 6"
+    }
+  ]
+}
 ```
 
 ### Get address by ID
@@ -610,22 +620,27 @@ Retrieve a paginated list of cars created by the user.
 #### Sample response
 
 ```json
-[
-  {
-    "id": 1,
-    "numberPlate": "sample string 2",
-    "make": "sample string 3",
-    "model": "sample string 4",
-    "remarks": "sample string 5"
-  },
-  {
-    "id": 1,
-    "numberPlate": "sample string 2",
-    "make": "sample string 3",
-    "model": "sample string 4",
-    "remarks": "sample string 5"
-  }
-]
+{
+  "currentPage": 1,
+  "pageSize": 15,
+  "totalPages": 1,
+  "items": [
+    {
+      "id": 1,
+      "numberPlate": "sample string 2",
+      "make": "sample string 3",
+      "model": "sample string 4",
+      "remarks": "sample string 5"
+    },
+    {
+      "id": 1,
+      "numberPlate": "sample string 2",
+      "make": "sample string 3",
+      "model": "sample string 4",
+      "remarks": "sample string 5"
+    }
+  ]
+}
 ```
 
 ### Get car by ID
